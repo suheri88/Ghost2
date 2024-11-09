@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Border Animation with Snow Effect</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+  <style>
+    /* Efek salju */
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: #fff;
+      font-size: 1em;
+      opacity: 0.8;
+      pointer-events: none;
+      animation: fall 10s linear infinite;
+    }
+
+    /* Efek daun maple */
+    .maple-leaf {
+      position: absolute;
+      top: -10px;
+      color: #ff4500; /* Warna daun maple */
+      font-size: 1.5em;
+      opacity: 0.9;
+      pointer-events: none;
+      animation: fall-maple 8s linear infinite;
+      transform-origin: center;
+    }
+
+    /* Animasi jatuh untuk salju dan daun */
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    @keyframes fall-maple {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <img src="Logo_SMAN_1_PKL_Lesung_HD_.png" alt="Logo" class="logo">
+    <div class="card">
+      <h1>XII 3</h1>
+      <h2>Tugas B. Ingris Tingkat Lanjut</h2>
+      <a href="exercise.html"><h3>(Klik Disini)</h3></a>
+      <div class="ghost-emoji">👻</div>
+    </div>
+  </div>
+
+  <!-- JavaScript untuk efek salju dan daun maple -->
+  <script>
+    // Membuat efek salju
+    function createSnowflakes() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.textContent = "❄"; // Karakter salju
+      snowflake.style.left = Math.random() * window.innerWidth + "px";
+      snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+      snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+      document.body.appendChild(snowflake);
+
+      // Menghapus elemen salju setelah selesai animasi
+      setTimeout(() => {
+        snowflake.remove();
+      }, 10000);
+    }
+
+    // Membuat efek daun maple
+    function createMapleLeaves() {
+      const mapleLeaf = document.createElement("div");
+      mapleLeaf.classList.add("maple-leaf");
+      mapleLeaf.textContent = "🍁"; // Karakter daun maple
+      mapleLeaf.style.left = Math.random() * window.innerWidth + "px";
+      mapleLeaf.style.fontSize = Math.random() * 15 + 15 + "px"; // Rentang ukuran 15px - 30px
+      mapleLeaf.style.animationDuration = Math.random() * 5 + 6 + "s";
+      document.body.appendChild(mapleLeaf);
+
+      // Menghapus elemen daun maple setelah selesai animasi
+      setTimeout(() => {
+        mapleLeaf.remove();
+      }, 10000);
+    }
+
+    // Menambahkan efek salju dan daun maple
+    setInterval(createSnowflakes, 300); // Salju setiap 300ms
+    setInterval(createMapleLeaves, 500); // Daun maple setiap 500ms
+  </script>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

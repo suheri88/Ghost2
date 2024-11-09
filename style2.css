@@ -1,0 +1,41 @@
+.logo {
+    width: 150px; /* Atur ukuran logo sesuai kebutuhan */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Posisi di tengah dengan jarak bawah */
+  }
+
+  .card a {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: inherit; /* Mengikuti warna teks di sekitarnya */
+  }
+  
+  .card a:hover {
+    color: blue; /* Ubah warna saat di-hover (opsional) */
+  }
+
+  
+ 
+  
+
+  .ghost-emoji {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem; /* Sesuaikan ukuran emoji di sini */
+    opacity: 0;
+    animation: ghost-surprise 4s infinite;
+  }
+  
+  @keyframes ghost-surprise {
+    0%, 100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-30px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+  
